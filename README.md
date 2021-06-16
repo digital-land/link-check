@@ -1,8 +1,18 @@
-## Checking the links on the digital-land site
+# Checking the links on the digital-land site
 
 The validity of links on the site can be checked using the [w3c link checker](https://metacpan.org/dist/W3C-LinkChecker).
 
-# Usage
+## Usage
+
+### Easy way
+
+list of paths to ignore can be found in `ignore.cfg`. Useful to stop the crawler going into all of the entity pages.
+
+There are some variables at the top of the run script that can be tweaked.
+
+`./run.sh`
+
+### Hard way
 
 `-D` specifies recursion depth
 
@@ -14,7 +24,7 @@ This will take some time to run. Using `tee` allows the output to be viewed in r
 /usr/local/Cellar/perl/5.32.1_1/bin/checklink -sber -t10 -D5 -qi -X '(digital-land\\.github\\.io\\/organisation\\/|digital-land\\.github\\.io\\/conservation-area\\/|digital-land\\.github\\.io\\/brownfield-land\\/|digital-land\\.github\\.io\\/collection\\/|digital-land\\.github\\.io\\/parish\\/|digital-land\\.github\\.io\\/weeknote\\/|digital-land\\.github\\.io\\/site\\.webmanifest)'  digital-land.github.io | tee checklink.out
 ```
 
-# Post-processing
+## Post-processing
 
 The output of `checklink` can be post processed into a csv file to make for easier filtering and tracking.
 
